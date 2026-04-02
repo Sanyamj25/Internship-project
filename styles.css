@@ -1,0 +1,290 @@
+/* Custom Styles for Foodcourt */
+
+.bg-warm {
+    background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%); /* Light purple gradient */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%); /* Warm yellow to peach */
+    color: #333;
+}
+
+.hero {
+    background: rgba(255, 255, 255, 0.5); /* Transparent white */
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('C:/PBEL Internship/Images/jain thali home page.jfif') no-repeat center center;
+    background-size: cover;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.hero input {
+    border-radius: 25px;
+    border: none;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.hero .btn {
+    border-radius: 25px;
+    padding: 10px 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.hero .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.featured {
+    background: white;
+    padding: 60px 0;
+}
+
+.featured h2 {
+    color: #667eea;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.featured .card {
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.featured .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.featured .card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.featured .card-body {
+    padding: 20px;
+}
+
+.featured .btn {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.featured .btn:hover {
+    background: linear-gradient(45deg, #764ba2, #667eea);
+    transform: scale(1.05);
+}
+
+.menu {
+    background: #f8f9fa;
+    padding: 60px 0;
+}
+
+.menu h2 {
+    color: #667eea;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.menu .card {
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.menu .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.menu .card-body {
+    padding: 20px;
+}
+
+.menu .btn {
+    background: linear-gradient(45deg, #28a745, #20c997);
+    border: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.menu .btn:hover {
+    background: linear-gradient(45deg, #20c997, #28a745);
+    transform: scale(1.05);
+}
+
+.cart {
+    background: white;
+    padding: 60px 0;
+    min-height: 60vh;
+}
+
+.cart h2 {
+    color: #667eea;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.cart .card {
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.cart .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.cart .btn-success {
+    background: linear-gradient(45deg, #28a745, #20c997);
+    border: none;
+    border-radius: 25px;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.cart .btn-success:hover {
+    background: linear-gradient(45deg, #20c997, #28a745);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.cart .btn-danger {
+    background: linear-gradient(45deg, #dc3545, #fd7e14);
+    border: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.cart .btn-danger:hover {
+    background: linear-gradient(45deg, #fd7e14, #dc3545);
+    transform: scale(1.05);
+}
+
+#cart-count {
+    color: #ff6b6b;
+    font-weight: bold;
+}
+
+.navbar {
+    background: linear-gradient(45deg, #667eea, #764ba2) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.modal-content {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    border-radius: 15px 15px 0 0;
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+.form-control {
+    border-radius: 25px;
+    border: 2px solid #ddd;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.btn {
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero input {
+        width: 80% !important;
+    }
+    .featured .card, .menu .card, .cart .card {
+        margin-bottom: 15px;
+    }
+}

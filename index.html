@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodcourt - Order Delicious Food Online</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Foodcourt</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+                <li class="nav-item"><a class="nav-link" href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+                <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="hero bg-primary text-white text-center py-5">
+        <div class="container">
+            <h1>Welcome to Foodcourt</h1>
+            <p>Order your favorite food from top restaurants near you!</p>
+            <input type="text" id="search" class="form-control w-50 mx-auto" placeholder="Search for restaurants or cuisines...">
+        </div>
+    </section>
+
+    <!-- Featured Restaurants -->
+    <section class="featured py-5">
+        <div class="container">
+            <h2 class="text-center">Featured Restaurants</h2>
+            <div class="row" id="restaurants">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="C:/PBEL Internship/Images/jain thali home page.jfif" class="card-img-top" alt="Indian Cuisine">
+                        <div class="card-body">
+                            <h5 class="card-title">Indian Cuisine</h5>
+                            <p class="card-text">Authentic Indian dishes.</p>
+                            <button class="btn btn-primary" onclick="viewMenu('indian')">View Menu</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="C:/PBEL Internship/Images/french fries.jfif" class="card-img-top" alt="Snacks">
+                        <div class="card-body">
+                            <h5 class="card-title">Snacks</h5>
+                            <p class="card-text">Delicious snacks and sweets.</p>
+                            <button class="btn btn-primary" onclick="viewMenu('snacks')">View Menu</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="C:/PBEL Internship/Images/pizza 1.jfif" class="card-img-top" alt="Fast Food">
+                        <div class="card-body">
+                            <h5 class="card-title">Fast Food</h5>
+                            <p class="card-text">Quick and tasty fast food.</p>
+                            <button class="btn btn-primary" onclick="viewMenu('fastfood')">View Menu</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center">Our Menu</h2>
+            <div class="row" id="menu-items">
+                <!-- Menu items will be populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Temporary Cart Section -->
+    <section id="temp-cart" class="py-5 bg-light" style="display: none;">
+        <div class="container">
+            <h2>Your Cart</h2>
+            <div id="temp-cart-items" class="row">
+                <!-- Cart items will be populated by JS -->
+            </div>
+            <div class="text-center mt-4">
+                <button class="btn btn-success btn-lg" onclick="window.location.reload()">Proceed to Checkout</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recently Viewed Section -->
+    <section id="recently-viewed-section" class="py-5">
+        <div class="container">
+            <div id="recently-viewed" class="row">
+                <!-- Recently viewed items will be populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Wishlist Section -->
+    <section id="wishlist-section" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center">Your Wishlist</h2>
+            <div id="wishlist" class="row">
+                <!-- Wishlist items will be populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Modal -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Checkout</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="checkout-form">
+                        <div class="form-group">
+                            <label for="address">Delivery Address:</label>
+                            <input type="text" class="form-control" id="address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="payment">Payment Method:</label>
+                            <select class="form-control" id="payment">
+                                <option>Credit Card</option>
+                                <option>PayPal</option>
+                                <option>Cash on Delivery</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success">Place Order</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                    <p class="text-center mt-3">Don't have an account? <a href="signup.html">Sign up here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Checkout</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="checkout-form">
+                        <div class="form-group">
+                            <label for="address">Delivery Address:</label>
+                            <input type="text" class="form-control" id="address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="payment">Payment Method:</label>
+                            <select class="form-control" id="payment">
+                                <option>Credit Card</option>
+                                <option>PayPal</option>
+                                <option>Cash on Delivery</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success">Place Order</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container">
+            <p>&copy; 2026 Foodcourt. All rights reserved.</p>
+            <div class="social-media">
+                <a href="#" class="text-white mx-2">📘 Facebook</a>
+                <a href="#" class="text-white mx-2">🐦 Twitter</a>
+                <a href="#" class="text-white mx-2">📷 Instagram</a>
+            </div>
+            <p class="mt-2">Contact us: <a href="mailto:info@foodcourt.com" class="text-white">info@foodcourt.com</a></p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
